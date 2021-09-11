@@ -1,3 +1,64 @@
+# hzcpow Clash Configuration
+
+mixed-port: 7890
+
+allow-lan: true
+
+bind-address: '*'
+
+mode: rule
+
+log-level: info
+
+ipv6: false
+
+external-controller: 127.0.0.1:9090
+
+hosts:
+  'mtalk.google.com': 108.177.125.188
+  'dl.google.com': 180.163.151.161
+  'dl.l.google.com': 180.163.151.161
+
+dns:
+  enable: false
+  listen: 0.0.0.0:53
+
+  default-nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - 114.114.114.114
+    - 1.1.1.1
+    - 8.8.8.8
+    - 9.9.9.9
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  fake-ip-filter:
+    - '*.lan'
+    - localhost.ptlogin2.qq.com
+    - '+.srv.nintendo.net'
+    - '+.stun.playstation.net'
+    - '+.msftconnecttest.com'
+    - '+.msftncsi.com'
+    - '+.xboxlive.com'
+    - 'msftconnecttest.com'
+    - 'xbox.*.microsoft.com'
+    - '*.battlenet.com.cn'
+    - '*.battlenet.com'
+    - '*.blzstatic.cn'
+    - '*.battle.net'
+
+  nameserver:
+    - 119.29.29.29
+    - 223.5.5.5
+    - 114.114.114.114
+    - 1.1.1.1
+    - 8.8.8.8
+    - 9.9.9.9
+
+  fallback-filter:
+    geoip: true
+    ipcidr:
+
 proxies:
   - {name: 🇭🇰 香港专线 1, server: iepl1.dcnode.me, port: 10001, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
   - {name: 🇭🇰 香港专线 2, server: iepl2.dcnode.me, port: 10002, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
@@ -9,3 +70,111 @@ proxies:
   - {name: 🇭🇰 香港专线 8, server: iepl8.dcnode.me, port: 10008, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
   - {name: 🇭🇰 香港专线 9, server: iepl9.dcnode.me, port: 10009, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
   - {name: 🇭🇰 香港专线 10, server: iepl10.dcnode.me, port: 10010, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - DIRECT
+      - IPLC HK 01
+      - IPLC HK 02
+      - CC HK 01
+      - CC HK 10
+      - IPLC HK 05
+      - IPLC HK 06
+      - IPLC HK 14
+      - IPLC HK 19
+      - IPLC HK 22
+      - AIA HK
+      - HA HK
+  - name: "Streaming"
+    type: select
+    proxies:
+      - PROXY
+      - IPLC HK 01
+      - IPLC HK 02
+      - CC HK 01
+      - CC HK 10
+      - IPLC HK 05
+      - IPLC HK 06
+      - IPLC HK 14
+      - IPLC HK 19
+      - IPLC HK 22
+      - AIA HK
+      - HA HK
+  - name: "StreamingSE"
+    type: select
+    proxies:
+      - DIRECT
+      - PROXY
+      - IPLC HK 01
+      - IPLC HK 02
+      - CC HK 01
+      - CC HK 10
+      - IPLC HK 05
+      - IPLC HK 06
+      - IPLC HK 14
+      - IPLC HK 19
+      - IPLC HK 22
+      - AIA HK
+      - HA HK
+
+rule-providers:
+  Unbreak:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Unbreak.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Unbreak.yaml
+    interval: 86400
+  Streaming:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/Streaming.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/Streaming.yaml
+    interval: 86400
+  StreamingSE:
+    type: http
+    behavior: classical
+    path: ./RuleSet/StreamingMedia/StreamingSE.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/StreamingMedia/StreamingSE.yaml
+    interval: 86400
+  Global:
+    type: http
+    behavior: classical
+    path: ./RuleSet/Global.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Global.yaml
+    interval: 86400
+  China:
+    type: http
+    behavior: classical
+    path: ./RuleSet/China.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/China.yaml
+    interval: 86400
+  ChinaIP:
+    type: http
+    behavior: ipcidr
+    path: ./RuleSet/Extra/ChinaIP.yaml
+    url: https://raw.githubusercontent.com/DivineEngine/Profiles/master/Clash/RuleSet/Extra/ChinaIP.yaml
+    interval: 86400
+
+rules:
+  - RULE-SET, Unbreak, DIRECT
+  - RULE-SET, Streaming, Streaming
+  - RULE-SET, StreamingSE, StreamingSE
+  - RULE-SET, Global, PROXY
+  - RULE-SET, China, DIRECT
+  #  - RULE-SET, ChinaIP, DIRECT
+
+  - IP-CIDR, 10.0.0.0/8, DIRECT
+  - IP-CIDR, 127.0.0.0/8, DIRECT
+  - IP-CIDR, 172.16.0.0/12, DIRECT
+  - IP-CIDR, 192.168.0.0/16, DIRECT
+  - IP-CIDR, 224.0.0.0/4, DIRECT
+  - IP-CIDR, 100.64.0.0/10, DIRECT
+  - IP-CIDR, 119.28.28.28/32, DIRECT
+  - IP-CIDR, 182.254.116.0/24, DIRECT
+  - IP-CIDR, fe80::/10, DIRECT
+
+  - GEOIP, CN, DIRECT
+
+  - MATCH, PROXY
