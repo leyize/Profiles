@@ -1,1 +1,11 @@
-
+proxies:
+  - {name: 🇭🇰 香港专线 1, server: iepl1.dcnode.me, port: 10001, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 2, server: iepl2.dcnode.me, port: 10002, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 3, server: iepl3.dcnode.me, port: 10003, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 4, server: iepl4.dcnode.me, port: 10004, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 5, server: iepl5.dcnode.me, port: 10005, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 6, server: iepl6.dcnode.me, port: 10006, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 7, server: iepl7.dcnode.me, port: 10007, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 8, server: iepl8.dcnode.me, port: 10008, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 9, server: iepl9.dcnode.me, port: 10009, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
+  - {name: 🇭🇰 香港专线 10, server: iepl10.dcnode.me, port: 10010, type: ss, cipher: aes-128-gcm, password: 38bf7353-55eb-42c2-863d-f9e09c5464dc}
