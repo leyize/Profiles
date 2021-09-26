@@ -185,7 +185,7 @@ function get_country_message(data) {
     const countrys = country.split(", ");
     let emoji_country = "";
     countrys.forEach(item => {
-        emoji_country += countryEmoji(item) + " " + item + ", ";
+        emoji_country += item + ", ";
     });
     return emoji_country.slice(0, -2);
 }
