@@ -146,7 +146,7 @@ function updateIMDbApikey() {
 }
 
 function get_IMDb_message(data) {
-    let rating_message = "IMDb:  ⭐️ N/A";
+    let rating_message = "IMDb:  N/A";
     let tomatoes_message = "";
     let country_message = "";
     let ratings = data.Ratings;
@@ -155,13 +155,13 @@ function get_IMDb_message(data) {
         if (imdb_source == "Internet Movie Database") {
             const imdb_votes = data.imdbVotes;
             const imdb_rating = ratings[0]["Value"];
-            rating_message = "IMDb:  ⭐️ " + imdb_rating + "   " + imdb_votes;
+            rating_message = "IMDb:  " + imdb_rating + "   " + imdb_votes;
             if (data.Type == "movie") {
                 if (ratings.length > 1) {
                     const source = ratings[1]["Source"];
                     if (source == "Rotten Tomatoes") {
                         const tomatoes = ratings[1]["Value"];
-                        tomatoes_message = "Tomatoes:  🍅 " + tomatoes;
+                        tomatoes_message = "Tomatoes:  " + tomatoes;
                     }
                 }
             }
@@ -176,7 +176,7 @@ function get_douban_rating_message(data) {
     .match(/\[\u7535\u5f71\].+?subject-cast\">.+?<\/span>/g);
     const average = s ? s[0].split(/">(\d\.\d)</)[1] || '' : '';
     const numRaters = s ? s[0].split(/(\d+)\u4eba\u8bc4\u4ef7/)[1] || '' : '';
-    const rating_message = `Douban:  ⭐️ ${average ? average + "/10" : "N/A"}   ${!numRaters ? "" : parseFloat(numRaters).toLocaleString()}`;
+    const rating_message = `Douban:  ${average ? average + "/10" : "N/A"}   ${!numRaters ? "" : parseFloat(numRaters).toLocaleString()}`;
     return rating_message;
 }
 
@@ -191,7 +191,7 @@ function get_country_message(data) {
 }
 
 function errorTip() {
-    return { noData: "⭐️ N/A", error: "❌ N/A" }
+    return { noData: "N/A", error: "N/A" }
 }
 
 function IMDbApikeys() {
