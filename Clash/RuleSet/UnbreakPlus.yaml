@@ -1,10 +1,10 @@
 payload:
   # 奶牛快传
-  - DOMAIN, cowtransfer.com
+  - DOMAIN,cowtransfer.com
   # 其他
-  - DOMAIN, cmpassport.com
-  - DOMAIN, jegotrip.com.cn
-  - DOMAIN, icitymobile.mobi
-  - DOMAIN, id6.me
-  - DOMAIN, pingan.com.cn
-  - DOMAIN, cmbchina.com
+  - DOMAIN,cmpassport.com
+  - DOMAIN,jegotrip.com.cn
+  - DOMAIN,icitymobile.mobi
+  - DOMAIN,id6.me
+  - DOMAIN,pingan.com.cn
+  - DOMAIN,cmbchina.com
