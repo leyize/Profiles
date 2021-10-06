@@ -1,10 +1,10 @@
 payload:
   # 奶牛快传
-  - DOMAIN-SUFFIX, cowtransfer.com
+  - DOMAIN, cowtransfer.com
   # 其他
-  - DOMAIN-SUFFIX, *.cmpassport.com
-  - DOMAIN-SUFFIX, *.jegotrip.com.cn
-  - DOMAIN-SUFFIX, *.icitymobile.mobi
-  - DOMAIN-SUFFIX, id6.me
-  - DOMAIN-SUFFIX, *.pingan.com.cn
-  - DOMAIN-SUFFIX, *.cmbchina.com
+  - DOMAIN, cmpassport.com
+  - DOMAIN, jegotrip.com.cn
+  - DOMAIN, icitymobile.mobi
+  - DOMAIN, id6.me
+  - DOMAIN, pingan.com.cn
+  - DOMAIN, cmbchina.com
